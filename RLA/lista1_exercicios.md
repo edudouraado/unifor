@@ -1,6 +1,6 @@
 # UNIFOR
 **Nome**: Eduardo Dourado Sales de Oliveira
-**Disciplina**: Raciocínio lógico algorítimo
+# **Disciplina**: Raciocínio lógico algorítimo
 
 ## Listas de exercícios 01
 

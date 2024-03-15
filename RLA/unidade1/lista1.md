@@ -1,5 +1,5 @@
 # UNIFOR
-**Nome**: Nome do estudante <br>
+**Nome**: Eduardo Dourado <br>
 **Disciplina**: Raciocínio lógico algorítmico
 
 ## Lista de exercícios 01
@@ -60,7 +60,15 @@ Sabe-se que os funcionários que recebem atualmente salário de até R$ 500 ter�
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B{{Digite seu sálario:}}
+B --> C[/Salario1/]
+C --> D{Salario1 >= 500}
+D --TRUE--> E[Salario1 * 1.1 = S2]
+D --FALSE--> F[Salario1 * 1.2 = S2]
+E --> G{{Salário atualizado}}
+F --> H{{Salário atualizado}}
+H --> I
+G --> I([FIM])
 ```
 
 #### Pseudocódigo (1.0 ponto)
@@ -84,8 +92,18 @@ Represente, em fluxograma e pseudocódigo, um algoritmo para calcular a média a
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
-```
+A([INICIO]) --> B{{Digite a primeira nota: }}
+B --> C[/nota1/]
+A --> D{{Digite a segunda nota: }}
+D --> E[/nota2/]
+C --> F[MEDIA = nota1 + nota2 / 2]
+E --> F
+F --> G{MEDIA >= 7}
+G --TRUE--> H[O aluno está aprovado com media: MEDIA]
+G --FALSE--> I[O aluno está reprovado com media: MEDIA]
+H --> J([FIM])
+I --> J
+```  
 
 #### Pseudocódigo (1 ponto)
 

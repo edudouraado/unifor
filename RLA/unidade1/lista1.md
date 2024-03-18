@@ -65,25 +65,33 @@ B --> C[/Salario1/]
 C --> D{Salario1 >= 500}
 D --TRUE--> E[Salario1 * 1.1 = S2]
 D --FALSE--> F[Salario1 * 1.2 = S2]
-E --> G{{Salário atualizado}}
-F --> H{{Salário atualizado}}
-H --> I
-G --> I([FIM])
+E --> G{{S2}}
+F --> G
+G --> H([FIM])
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
-Algoritmo ContaAprovacoes
-FIM_ALGORITMO
+ALGORITMO salario
+DECLARE S1, S2: REAIS
+INICIO
+ESCREVA "Digite seu salario: "
+LEIA S1
+SE S1 >= 500.00 ENTAO
+	S2 = S1 * 1.1
+SENAO
+	S2 = S1 * 1.2
+	ESCREVA "Seu novo salario é: ", S2
+FIM
 ```
 
 #### Teste de mesa (1.0 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| S1 | S1 >= 500.00 | S2 | SAIDA | 
+|      --      |      --      |      --      |      --      |
+| 200     | 200.00 >= 500.00       | 240.00    |  Seu novo salario é: 240.00     |
+| 800   | 800.00 >= 500.00          | 880.00        | Seu novo salario é: 880.00 |
 
 ## Exercício 03 (3 pontos)
 Represente, em fluxograma e pseudocódigo, um algoritmo para calcular a média aritmética entre duas notas de um aluno e mostrar sua situação, que pode ser aprovado ou reprovado.
@@ -108,16 +116,26 @@ I --> J
 #### Pseudocódigo (1 ponto)
 
 ```
-Algoritmo ContaAprovacoes
-FIM_ALGORITMO
+ALGORITMO media
+DECLARE N1, N2, M REAIS
+INICIO
+ESCREVA "Digite suas duas notas: "
+LEIA N1, N2
+M = N1 + N2 / 2
+SE M >= 7.00 ENTAO
+	ESCREVA "O aluno foi aprovado com media: ", M
+SENAO 
+	ESCREVA "O aluno foi aprovado com media: ", M
+FIM
+
 ```
 
 #### Teste de mesa (1 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| N1 | N2 | M | M >= 7.00 | SAIDA |
+|      --      |      --      |      --      |      --      |      --      |
+| 8.00     | 7.00      | 7.50    |  7.50 >= 7.00     | Aluno aprovado |
+| 5.00   | 6.00          | 5.50        | 5.50 <= 7.00 | Aluno reprovado |
 
 ## Exercício 04 (3 pontos)
 Represente, em fluxograma e pseudocódigo, um algoritmo que, a partir da idade do candidato(a), determinar se pode ou não tirar a CNH. 

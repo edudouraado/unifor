@@ -126,67 +126,56 @@ O algoritmo deve retornar o resultado da operação selecionada simulando todas 
 
 #### Fluxograma (1.0 ponto)
 
-``` mermaid
+```mermaid
 flowchart TD
-
-A([INICIO]) --> B{{Digite dois numeros reais: }}
-B --> C[/n1, n2/]
-C --> D{{Digite um operador: +, -, x, /: }}
-D --+--> E[R = n1+n2]
-D --"-"--> F[R = n1-n2]
-D --"x"--> G[R = n1 x n2]
-D --"/"--> H[R = n1/n2]
-E --> I{{O resultado da operação é R}}
-F --> I
-G --> I
-H --> I
-I --> J([FIM])
+A([INICIO]) --> B{{Digite dois numeros reais e um operador}}
+B --> C[/Num1, Num2, Operacao/]
+C --> D{Operacao =+}
+D --TRUE--> E[R = Num1 + Num2]
+E --> F{{O resultado da Operacao é: R}}
+F --> G([FIM])
+D --FALSE--> H{Operacao =-}
+H --TRUE--> I[R = Num1 - Num2]
+I --> F
+H --FALSE--> J{Operacao = x}
+J --TRUE--> K[R = Num1 x Num2]
+K --> F
+J --FALSE--> L{Operacao =/}
+L --> M[R = Num1 / Num2]
+M --> F
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
-
 ```
-ALGORITMO CalculadoraSimples 
-DECLARE 
-	num1, num2, resultado REAL 
-	operador CARACTERE 
-INÍCIO 
-	ESCREVA "Digite o primeiro número: " 
-	LEIA num1 
-	ESCREVA "Digite o segundo número: " 
-	LEIA num2 
-	ESCREVA "Digite o operador (+, -, *, /): " 
-	LEIA operador 	
-	SE  operador  =  "+"  ENTAO  
-		resultado  = num1 + num2
-	SENAO SE  operador  =  "-"  ENTAO  
-		resultado  = num1 - num2 
-	SENAO SE  operador  =  "*"  ENTAO  
-		resultado  = num1 * num2 
-	SENAO SE  operador  =  "/" ENTAO 
-		SE num2 != 0  ENTAO
-			resultado  = num1 / num2 
-		SENAO 
-			ESCREVA "Erro: Divisão por zero!" 
-			TERMINAR ALGORITMO 
-		FIM SE 
+ALGORITMO operadores
+DECLARE Num1, Num2, R : REAIS, Operacao: CARACTERES
+INICIO 
+ESCREVA "Digite dois numeros reais e um operador"
+LEIA Num1, Num2, Operacao 
+SE Operacao =+ ENTAO
+	R = Num1 + Num2
+SENAO 
+Operacao =- ENTAO
+	R = Num1 - Num2
 	SENAO 
-		ESCREVA "Operador inválido!" 
-		TERMINAR ALGORITMO 
-	FIM SE 
-	ESCREVA "O resultado da operação é: ", resultado 
-FIM
+	Operacao =x ENTAO
+		R = Num1 x Num2
+		SENAO
+		Operacao =/ ENTAO
+			R = Num1 / Num2
+ESCREVA "O resultado da Operacao é: R"
+FIM	
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| num1 | num2 | operador |  R |  Resultado| 
-|      --      |      --      |      --      |      --      |      --      |
-| 1 | 1 | + | 1 + 1 | 2
-| 6 | 3| - | 6 - 3 | 3
-| 3 | 5 | X | 3 X 5 | 15
-| 20 | 4 | / | 20 / 4 | 5
+| Num1 | Num2 | Operacao | Operacao =+ | Operacao =- | Operacao =x | Operacao =/ | R | SAIDA |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | 
+| 12 | 8 | + | TRUE | FALSE | FALSE | FALSE | 20 | O resutado da soma é: 20 |
+| 10 | 5 | - | FALSE | TRUE | FALSE | FALSE | 5 | O resultado da subtração é: 5 |
+| 5 | 3 | x | FALSE | FALSE | TRUE | FALSE | 15 | O resultado da multiplicação é: 15 |
+| 99 | 33 | / | FALSE | FALSE | FALSE | TRUE | 3 | O resultado da divisão é: 3 |
 
 ### Exercício 04 (2.5 pontos)
 Elaborar um algoritmo que, dada a idade, classifique nas categorias: infantil A (5 - 7 anos), infantil B (8 -10 anos), juvenil A (11 - 13 anos), juvenil B (14 -17 anos) e adulto (maiores que 18 anos).

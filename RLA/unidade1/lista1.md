@@ -88,10 +88,14 @@ FIM
 
 #### Teste de mesa (1.0 ponto)
 
+
 | S1 | S1 >= 500.00 | S2 | SAIDA | 
 |      --      |      --      |      --      |      --      |
-| 200     | 200.00 >= 500.00       | 240.00    |  Seu novo salario é: 240.00     |
-| 800   | 800.00 >= 500.00          | 880.00        | Seu novo salario é: 880.00 |
+| 200 | 200.00 <= 500.00 | 240.00 |  Seu novo salario é: 240.00     |
+|400 | 400.00 <= 500.00 | 480.00 | Seu novo salario é: 480.00
+| 600 | 600.00 >= 500.00 | 660.00 | Seu novo salario é: 660.00
+| 800 | 800.00 >= 500.00 | 880.00 | Seu novo salario é: 880.00 |
+
 
 ## Exercício 03 (3 pontos)
 Represente, em fluxograma e pseudocódigo, um algoritmo para calcular a média aritmética entre duas notas de um aluno e mostrar sua situação, que pode ser aprovado ou reprovado.
@@ -134,8 +138,10 @@ FIM
 
 | N1 | N2 | M | M >= 7.00 | SAIDA |
 |      --      |      --      |      --      |      --      |      --      |
-| 8.00     | 7.00      | 7.50    |  7.50 >= 7.00     | Aluno aprovado |
-| 5.00   | 6.00          | 5.50        | 5.50 <= 7.00 | Aluno reprovado |
+| 3.00     | 9.00      | 6.00    |  6.00 <= 7.00     | Aluno reprovado |
+| 4.00   | 9.00          | 6.50        | 6.50 <= 7.00 | Aluno reprovado |
+| 7.00 | 8.00 | 7.50 | 7.50 >= 7.00 | Aluno aprovado |
+| 8.00 | 9.00 | 8.50 | 8.50 >= 7.00 | Aluno aprovado |
 
 ## Exercício 04 (3 pontos)
 Represente, em fluxograma e pseudocódigo, um algoritmo que, a partir da idade do candidato(a), determinar se pode ou não tirar a CNH. 
@@ -169,7 +175,7 @@ SE I1 >= 18 ENTAO
 	ESCREVA "Já pode tirar a CNH"
 SENAO
 	I2 = 18 - I1
-	ESCREVA "O candidato devera esperar: ", I2
+	ESCREVA "O candidato deverá esperar: ", I2
 FIM
 ```
 
@@ -177,5 +183,7 @@ FIM
 
 | I1 | I1 >= 18 | I2 | SAIDA | 
 |      --      |      --      |      --      |      --      |
+| 16 | 16 <= 18 | +2 | O candidato deverá esperar: 2 anos
+| 17 | 17 <= 18 | +1 | O candidato deverá esperar: 1 ano
 | 18     | 18 >= 18       | 0    |  Já pode tirar a CNH     |
 | 19   | 19 >= 18          | -1        | Já pode tirar a CNH |

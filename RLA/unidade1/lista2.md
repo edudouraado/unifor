@@ -79,8 +79,10 @@ FIM
 
 | N1 | N2 | N3 | N4 | M | SAIDA | 
 |      --      |      --      |      --      |      --      |      --      |      --      | 
-| 4     | 9       | 7    |  2     | 5.5    |      A media é: 5.5      |
-| 3   | 8          | 5        | 9 | 13  |      A media é: 13      |
+| 4    | 8       | 4    |  10     | 6.5    |      A media é: 6.5      |
+| 7    | 9       | 6    |  8     | 7.5    |      A media é: 7.5 |
+| 2    | 4       | 6    |  8     | 5.5    |      A media é: 5.0 | 
+| 3    | 5       | 7    |  9     | 5.5    |      A media é: 6.0 |     
 
 ### Exercício 02 (2.5 pontos)
 Leia uma temperatura dada em Celsius (C) e imprima o equivalente em Fahrenheit (F). (Fórmula de conversão: F = (9/5) * C + 32)
@@ -111,10 +113,12 @@ FIM
 
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+|  ºC  |  ºF  | SAÍDA  |
+|  --  |  --  |  --  |
+| 20 | 71.6 | A temperatura em fahrenheit é: 71.6|
+| 25 | 68 | A temperatura em fahrenheit é: 68|
+| 30 | 86 | A temperatura em fahrenheit é: 86|
+| 35 | 95 | A temperatura em fahrenheit é: 95|
 
 ### Exercício 03 (2.5 pontos)
 Receba dois números reais e um operador e efetue a operação correspondente com os valores recebidos (operandos). 
@@ -122,64 +126,67 @@ O algoritmo deve retornar o resultado da operação selecionada simulando todas 
 
 #### Fluxograma (1.0 ponto)
 
-```mermaid
+``` mermaid
 flowchart TD
-A([INICIO]) --> B{{Digite uma idade: }}
-B --> C[/I1/]
-C --> D{5 >= I1 <=7}
-D --TRUE--> E{{A categoria é infantio A}}
-E --> F([FIM])
-D --FALSE--> G{8 >= I1 <= 10}
-G --TRUE--> H{{A categoria é infantia B}}
-H --> F
-G --FALSE--> I{11 >= I1 <= 13}
-I --TRUE--> J{{A categoria é juvenil A}}
-J --> F
-I --FALSE--> L{14 >= I1 <= 17}
-L --TRUE--> K{{A categoria é juvenil B}}
-K --> F
-L --FALSE--> M{I1 >= 18}
-M --> N{{A categoria é adulto}}
-N --> F
+
+A([INICIO]) --> B{{Digite dois numeros reais: }}
+B --> C[/n1, n2/]
+C --> D{{Digite um operador: +, -, x, /: }}
+D --+--> E[R = n1+n2]
+D --"-"--> F[R = n1-n2]
+D --"x"--> G[R = n1 x n2]
+D --"/"--> H[R = n1/n2]
+E --> I{{O resultado da operação é R}}
+F --> I
+G --> I
+H --> I
+I --> J([FIM])
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
+
 ```
-ALGORITMO categoria
-DECLARE I1 NUMERAIS
-INICIO
-ESCREVA "Digite uma idade: "
-LEIA I1
-SE I1 5 >= I1 <= 7 ENTAO
-	ESCREVA "A categoria é infantil A"
-	SENAO
-	8 >= I1 <= 10 ENTAO
-		ESCREVA "A categoria é infantia B"
+ALGORITMO CalculadoraSimples 
+DECLARE 
+	num1, num2, resultado REAL 
+	operador CARACTERE 
+INÍCIO 
+	ESCREVA "Digite o primeiro número: " 
+	LEIA num1 
+	ESCREVA "Digite o segundo número: " 
+	LEIA num2 
+	ESCREVA "Digite o operador (+, -, *, /): " 
+	LEIA operador 	
+	SE  operador  =  "+"  ENTAO  
+		resultado  = num1 + num2
+	SENAO SE  operador  =  "-"  ENTAO  
+		resultado  = num1 - num2 
+	SENAO SE  operador  =  "*"  ENTAO  
+		resultado  = num1 * num2 
+	SENAO SE  operador  =  "/" ENTAO 
+		SE num2 != 0  ENTAO
+			resultado  = num1 / num2 
 		SENAO 
-		11 >= I1 <= 13 ENTAO
-			ESCREVA "A categoria é juvenil A"
-			SENAO 
-			14 >= I1 <= 17 ENTAO
-				ESCREVA "A categoria é juvenil B"
-				SENAO
-				I1 >= 18 ENTAO 
-					ESCREVA "A categoria é adulto"
-				FIM_SE
-			FIM_SE
-		FIM_SE
-	FIM_SE
+			ESCREVA "Erro: Divisão por zero!" 
+			TERMINAR ALGORITMO 
+		FIM SE 
+	SENAO 
+		ESCREVA "Operador inválido!" 
+		TERMINAR ALGORITMO 
+	FIM SE 
+	ESCREVA "O resultado da operação é: ", resultado 
 FIM
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| I1 | SAIDA | 
-|      --      |      --      | 
-| 5     | A categoria é infantil A       |
-| 11   | A categoria é juvenil A          |
-| 18   | A categoria é adulta         |
-| 15   | A categoria é juvenil B          |
+| num1 | num2 | operador |  R |  Resultado| 
+|      --      |      --      |      --      |      --      |      --      |
+| 1 | 1 | + | 1 + 1 | 2
+| 6 | 3| - | 6 - 3 | 3
+| 3 | 5 | X | 3 X 5 | 15
+| 20 | 4 | / | 20 / 4 | 5
 
 ### Exercício 04 (2.5 pontos)
 Elaborar um algoritmo que, dada a idade, classifique nas categorias: infantil A (5 - 7 anos), infantil B (8 -10 anos), juvenil A (11 - 13 anos), juvenil B (14 -17 anos) e adulto (maiores que 18 anos).
@@ -219,7 +226,7 @@ SE I1 5 >= I1 <= 7 ENTAO
 	ESCREVA "A categoria é infantil A"
 	SENAO
 	8 >= I1 <= 10 ENTAO
-		ESCREVA "A categoria é infantia B"
+		ESCREVA "A categoria é infantil B"
 		SENAO 
 		11 >= I1 <= 13 ENTAO
 			ESCREVA "A categoria é juvenil A"
@@ -240,7 +247,8 @@ FIM
 
 | I1 | SAIDA | 
 |      --      |      --      | 
-| 5     | A categoria é infantil A       |
-| 11   | A categoria é juvenil A          |
-| 18   | A categoria é adulta         |
-| 15   | A categoria é juvenil B          |
+| 6     | A categoria é infantil A |
+| 9   | A categoria é infantil B |
+| 12   | A categoria é juvenil A |
+| 15   | A categoria é juvenil B |
+| 20| A categoria é adulto |

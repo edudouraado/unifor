@@ -82,7 +82,7 @@ SE S1 >= 500.00 ENTAO
 	S2 = S1 * 1.1
 SENAO
 	S2 = S1 * 1.2
-	ESCREVA "Seu novo salario é: ", S2
+	ESCREVA "Seu novo salário é: ", S2
 FIM
 ```
 
@@ -101,10 +101,10 @@ Represente, em fluxograma e pseudocódigo, um algoritmo para calcular a média a
 ```mermaid
 flowchart TD
 A([INICIO]) --> B{{Digite a primeira nota: }}
-B --> C[/nota1/]
+B --> C[/N1/]
 A --> D{{Digite a segunda nota: }}
-D --> E[/nota2/]
-C --> F[MEDIA = nota1 + nota2 / 2]
+D --> E[/N2/]
+C --> F[MEDIA = N1 + N2/ 2]
 E --> F
 F --> G{MEDIA >= 7}
 G --TRUE--> H[O aluno está aprovado com media: MEDIA]

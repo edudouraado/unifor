@@ -1,5 +1,5 @@
 # UNIFOR
-**Nome**: Nome do estudante <br>
+**Nome**: Eduardo Dourado Sales de Oliveira <br>
 **Disciplina**: Raciocínio lógico algorítm
 
 ## Exercício exemplo

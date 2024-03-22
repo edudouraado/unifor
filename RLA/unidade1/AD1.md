@@ -419,17 +419,17 @@ INÍCIO
 ESCREVA "Digite o número de termos da sequência (n >= 1): "
 LEIA n
 ENQUANTO n < 1
-    a = 0
-    b = 1
+	a = 0
+	b = 1
 ESCREVA "Os ", n, " primeiros termos da sequência de Fibonacci são:"
 ESCREVA a
 SE n > 1 ENTAO
-        ESCREVA b
-        PARA contador DE 3 ATÉ n FAÇA
-			termo_atual = a + b
-            ESCREVA termo_atual
-            a = b
-            b = termo_atual
+	ESCREVA b
+	PARA contador DE 3 ATÉ n FAÇA
+		termo_atual = a + b
+		ESCREVA termo_atual
+		a = b
+		b = termo_atual
         FIM PARA
     FIM SE
 FIM

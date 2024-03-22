@@ -486,13 +486,17 @@ DECLARE num, num_inv, digito, temp INTEIRO
 INÍCIO
 ESCREVA "Digite um número inteiro positivo: " 
 LEIA num 
-ENQUANTO num <= 0  
-ENQUANTO num > 0 FAÇA
-	digito = num % 10  
-	num_inv = num_inv * 10 + digito 
-	num = num / 10 
-FIM ENQUANTO
-ESCREVA "O número invertido é: ", num_inv 
+SE num > 0
+    num_inv = 0
+    ENQUANTO num = 0 FAÇA
+        digito = numero % 10
+        num_inv = num_inv * 10 + digito
+        numero = numero / 10
+    FIM_ENQUANTO
+    ESCREVA "Numero invertido, num_inv"
+SENAO
+    ESCREVA "O numero deve ser positivo"
+FIM_SE
 FIM
 ```
 

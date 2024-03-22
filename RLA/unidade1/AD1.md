@@ -71,9 +71,18 @@ I --> J{{"b =", b}}
 #### Pseudocódigo (1 ponto)
 
 ```
-Algoritmo TrocaValores
-INICIO
-...
+ALGORITMO TrocaVariaveis
+DECLARE a, b, aux REAIS
+INÍCIO
+ESCREVA "Digite o valor de a: "
+LEIA a
+ESCREVA "Digite o valor de b: "
+LEIA b
+aux = a
+a = b
+b = temp
+ESCREVA "O valor de a agora é: ", a
+ESCREVA "O valor de b agora é: ", b
 FIM
 ```
 
@@ -141,8 +150,22 @@ J --LOOP--> E
 
 ```
 Algoritmo ContaAprovacoes
+DECLARE n, cont, i, nota: REAIS
 INICIO
-...
+ESCREVA "Digite o numero de alunos: "
+LEIA n
+cont = 0
+i = 1
+ENQUANTO i <= n FAÇA
+    ESCREVA "Digite a nota do aluno: ", i
+    LEIA nota
+    SE nota >= 50 e nota <= 100 ENTAO
+        cont =+ 1
+    SENAO
+        i =+ 1
+    FIM_ENQUANTO
+SENAO
+    ESCREVA "Numero de alunos aprovados: ", cont
 FIM
 ```
 
@@ -204,8 +227,23 @@ K --LOOP--> G
 
 ```
 Algoritmo SomaNumeros
+DECLARE n, soma, i, num
 INICIO
-...
+ESCREVA "Digite a quantidade de números a serem somados (n >= 0): "
+LEIA n
+SE n >= 0 ENTAO
+    soma = 0
+    i = 1
+    ENQUANTO i <= n FAÇA
+        ESCREVA "Digite um número: "
+        LEIA num
+        soma =+ num
+        i  =+1
+        FIM_ENQUANTO
+    SENAO
+        ESCREVA "A soma dos ", n, " números é: ", soma
+SENAO
+    ESCREVA "O valor deve ser maior ou igual a zero"
 FIM
 ```
 
@@ -258,8 +296,18 @@ I --LOOP--> E
 
 ```
 Algoritmo SomaSerie
+DECLARE S, i, n, numerador, denominador: REAIS
 INICIO
-...
+ESCREVA "Digite o numero de termos da serie S: "
+LEIA n
+S = 0
+PARA i de 0 ATE n PASSO 1 FAÇA
+    numerador = 2*i + 1
+    denominador =2*i + 2
+    termo = numerador / denominador
+    S += termo
+FIM_PARA
+    ESCREVA " Soma da série S é: " , S
 FIM
 ```
 
@@ -305,9 +353,21 @@ H --> I
 #### Pseudocódigo (2 pontos)
 
 ```
-Algoritmo CalcFatorial
-INICIO
-...
+ALGORITMO CalcularFatorial
+DECLARE n, fatorial, i INTEIRO
+INÍCIO
+ESCREVA "Digite um número inteiro não negativo (n >= 0): "
+LEIA n
+ENQUANTO n < 0
+    fatorial = 1
+SE n == 0 ENTAO
+    fatorial = 1
+SENAO
+	PARA i DE 1 ATÉ n FAÇA
+            fatorial = fatorial * i
+	FIM PARA
+FIM SE
+ESCREVA "O fatorial de ", n, " é: ", fatorial
 FIM
 ```
 
@@ -353,11 +413,28 @@ I --LOOP--> E
 #### Pseudocódigo (2 pontos)
 
 ```
-Algoritmo GeraFibonacci
-INICIO
-...
+ALGORITMO Fibonacci
+DECLARE n, a, b, termo_atual, numerico REAIS
+INÍCIO
+ESCREVA "Digite o número de termos da sequência (n >= 1): "
+LEIA n
+ENQUANTO n < 1
+    a = 0
+    b = 1
+ESCREVA "Os ", n, " primeiros termos da sequência de Fibonacci são:"
+ESCREVA a
+SE n > 1 ENTAO
+        ESCREVA b
+        PARA contador DE 3 ATÉ n FAÇA
+			termo_atual = a + b
+            ESCREVA termo_atual
+            a = b
+            b = termo_atual
+        FIM PARA
+    FIM SE
 FIM
 ```
+
 #### Teste de mesa
 
 | it | n  | a  | b  | i  | saída | termo_atual = a + b | a = b | b = termo_atual |
@@ -404,9 +481,18 @@ E --> W
 #### Pseudocódigo (2 pontos)
 
 ```
-Algoritmo InverteInteiro
-INICIO
-...
+ALGORITMO InverterNumero 
+DECLARE num, num_inv, digito, temp INTEIRO 
+INÍCIO
+ESCREVA "Digite um número inteiro positivo: " 
+LEIA num 
+ENQUANTO num <= 0  
+ENQUANTO num > 0 FAÇA
+	digito = num % 10  
+	num_inv = num_inv * 10 + digito 
+	num = num / 10 
+FIM ENQUANTO
+ESCREVA "O número invertido é: ", num_inv 
 FIM
 ```
 

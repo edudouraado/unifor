@@ -1,5 +1,5 @@
 # UNIFOR
-**Nome**: Nome do estudante <br>
+**Nome**: Eduardo Dourado <br>
 **Disciplina**: Raciocínio lógico algorítm
 
 ## Exercício exemplo 1
@@ -102,10 +102,10 @@ Atualize o algoritmo para determinar se um número inteiro e positivo é par ou 
 ```mermaid
 flowchart TD
 A([INICIO]) --> B{{Digite um numero inteiro e positivo}}
-B --> C[/N1/]
-C --> D{N1 >= 0}
+B --> C[/Num1/]
+C --> D{Num1 >= 0}
 D --LOOP--> B
-D --TRUE--> F[R = N1 % 2]
+D --TRUE--> F[R = Num1 % 2]
 F --> G{R = 0}
 G --TRUE--> H{{O numero é par}}
 G --FALSE--> I{{O numero é impar}}
@@ -117,13 +117,13 @@ I --> J
 
 ```
 ALGORITMO par_impar
-DECLARE N1, R : INTEIROS
+DECLARE Num1, R : INTEIROS
 INICIO
 REPITA
 	ESCREVA "Digite um numero inteiro e positivo"
-	LEIA N1
-	ATE_QUE N1 >= 0 ENTAO
-	R = N1 % 2
+	LEIA Num1
+	ATE_QUE Num1 >= 0 ENTAO
+	R = Num1 % 2
 	SE R = 0 ENTAO
 		ESCREVA "O numero é par"
 	SENAO 
@@ -134,7 +134,7 @@ FIM
 
 #### Teste de mesa (0.5 ponto)
 
-| N1 | N1 >= 0 | R | R = 0 | SAIDA | 
+| Num1 | Num1 >= 0 | R | R = 0 | SAIDA | 
 | -- | -- | -- | -- | -- | 
 | 2 | TRUE | 0 | TRUE | O numero é par |
 | 10 | TRUE | 0 | TRUE | O numero é par |
@@ -148,22 +148,43 @@ Faça um algoritmo que exiba na tela uma contagem de 0 até 30, exibindo apenas 
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B[/Num1 = 0/]
+B --> C{Num1 <= 30}
+C --TRUE--> D{{Numero = Num1}}
+D --> E[Num1 =+ 3]
+E --LOOP--> C
+C --FALSE--> F([FIM])
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
-Algoritmo ClassificaCategoria
-FIM_ALGORITMO
+ALGORITMO multiplos_3
+DECLARE Num1 : NUMERICOS
+INICIO
+Num1 = 0
+ENQUANTO Num1 <= 30 FAÇA
+	ESCREVA "Numero = Num1"
+	Num1 =+ 3
+FIM_ENQUANTO
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+|  | Num1 | Num2 | Num1 <= Num2 | SAIDA | Num1 =+ 3 |  
+| -- | -- | -- | -- | -- | -- |  
+| 1 | 0 | 30 | TRUE | 0 | 3 |  
+| 2 | 3 | 30 | TRUE | 3 | 6 |  
+| 3 | 6 | 30 | TRUE | 6 | 9 |  
+| 4 | 9 | 30 | TRUE | 9 | 12 |  
+| 5 | 12 | 30 | TRUE | 12 | 15 |
+| 6 | 15 | 30 | TRUE | 15 | 18 | 
+| 7 | 18 | 30 | TRUE | 18 | 21 | 
+| 8 | 21 | 30 | TRUE | 21 | 24 | 
+| 9 | 24 | 30 | TRUE | 24 | 27 | 
+| 10 | 27 | 30 | TRUE | 27 | 30 | 
+| 11 | 30 | 30 | TRUE | 30 | 33 |
+| 12 | 33 | 30 | FALSE | 33 | 36 |
 
 ### Exercício 03 (2.5 pontos)
 Dada uma sequência de números inteiros, calcular a sua soma. 
@@ -173,22 +194,34 @@ Por exemplo, para a sequência {12, 17, 4, -6, 8, 0}, o seu programa deve escrev
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B{{Digite 3 numeros inteiros}}
+B --> C[/Num1, Num2, Num3/]
+C --> D[R = Num1 + Num2 + Num3]
+D --> E{{Sua soma é igual a: R}}
+E --> F([FIM])
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
-Algoritmo ClassificaCategoria
-FIM_ALGORITMO
+ALGORITMO soma
+DECLARE Num1, Num2, Num1, R : INTEIROS
+INICIO
+ESCREVA "Digite 3 numeros inteiros"
+LEIA Num1, Num2, Num3
+R = Num1 + Num2 + Num3 ENTAO
+	ESCREVA "Sua soma é igual: ", R
+FIM
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| Num1 | Num2 | Num3 | R | SAIDA | 
+| -- | -- | -- | -- | -- | 
+| 1 | 3 | 5 |  7 | A soma dos 3 numeros é: 16 |
+| 2 | 4 | 6 | 8 | A soma dos 3 numeros é: 20 |
+| 8 | 3 | 4 | 3| A soma dos 3 numeros é: 18 |
+| 9 | 6 | 1 | 7 | A soma dos 3 numeros é: 23|
 
 ### Exercício 04 (2.5 pontos)
 Escreva um programa que leia a nota de diversos alunos, até que seja digitada uma nota negativa. 

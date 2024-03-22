@@ -218,10 +218,10 @@ FIM
 
 | Num1 | Num2 | Num3 | R | SAIDA | 
 | -- | -- | -- | -- | -- | 
-| 1 | 3 | 5 |  7 | A soma dos 3 numeros é: 16 |
-| 2 | 4 | 6 | 8 | A soma dos 3 numeros é: 20 |
-| 8 | 3 | 4 | 3| A soma dos 3 numeros é: 18 |
-| 9 | 6 | 1 | 7 | A soma dos 3 numeros é: 23|
+| 1 | 3 | 5 |  9 | A soma dos 3 numeros é: 9 |
+| 2 | 4 | 6 | 12 | A soma dos 3 numeros é: 12 |
+| 8 | 3 | 4 | 16| A soma dos 3 numeros é: 16 |
+| 9 | 6 | 1 | 14 | A soma dos 3 numeros é: 14|
 
 ### Exercício 04 (2.5 pontos)
 Escreva um programa que leia a nota de diversos alunos, até que seja digitada uma nota negativa. 
